@@ -2,6 +2,8 @@ import React, {FormEvent, useState} from "react";
 import {FiArrowRight} from "react-icons/fi";
 import {Link, useHistory} from "react-router-dom";
 import api from "../../services/api";
+import logo from "../../assets/logo.png";
+import "./styles.css"
 
 
 const Login   = () => {
@@ -27,17 +29,22 @@ const Login   = () => {
     }
 
     return (
-      <div>
+      <div className="container-login">
+          <img src={logo} alt="Wetake" />
 
           <form onSubmit={handleLogin}>
               <fieldset>
                   <legend>
-                      <h2>Acesse a aplicação!</h2>
+                      <h2 className="title">Acesse a aplicação!</h2>
                   </legend>
-                  <label htmlFor="email">E-mail</label>
-                  <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)}/>
-                  <label htmlFor="pass">Senha</label>
-                  <input type="password" id="pass" value={pass} onChange={e => setPass(e.target.value)}/>
+                  <div>
+                    <label htmlFor="email">E-mail</label>
+                    <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)}/>
+                  </div>
+                  <div>
+                    <label htmlFor="pass">Senha</label>
+                    <input type="password" id="pass" value={pass} onChange={e => setPass(e.target.value)}/>
+                  </div>
               </fieldset>
               <button type="submit">Entrar</button>
           </form>

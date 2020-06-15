@@ -1,0 +1,29 @@
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.container-login fieldset{
+    flex-direction: column;
+}
+
+.container-login fieldset .title {
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.container-login fieldset div {
+    margin: 20px;
+}
+
+.container-login button {
+    align-items: center;
+    border: black 3px solid;
+    width: 200px;
+    height: 20px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+}

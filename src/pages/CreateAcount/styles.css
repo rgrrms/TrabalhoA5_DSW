@@ -1,0 +1,49 @@
+.container-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.container-account fieldset{
+    flex-direction: column;
+}
+
+.container-account fieldset .title {
+    margin-left: 55px;
+    margin-top: 20px;
+}
+
+.container-account fieldset div {
+    margin: 20px;
+}
+
+.container-account label{
+    margin-right: 10px;
+}
+
+.container-account #name {
+    width: 183px;
+}
+
+.container-account #email {
+    width: 186px;
+}
+
+.container-account #phone {
+    width: 166px;
+}
+
+.container-account button {
+    align-items: center;
+    border: black 3px solid;
+    width: 200px;
+    height: 20px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+}
+
+.container-account .link {
+    margin-left: 60px;
+}

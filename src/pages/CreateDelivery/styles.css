@@ -1,0 +1,73 @@
+.container-delivery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.container-delivery header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.container-delivery header .exit {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 112px;
+}
+
+.container-delivery .title {
+    margin-left: 55px;
+    margin-top: 20px;
+}
+
+.container-delivery .title .destiny,
+.container-delivery .title .origin {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.container-delivery .title .dimension {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.container-delivery .title .dimension #height {
+    margin-right: 36px;
+    margin-bottom: 15px;
+}
+
+.container-delivery .title .dimension #length {
+    width: 127px;
+    margin-right: 36px;
+}
+
+.container-delivery .title .dimension #weight {
+    width: 200px;
+}
+
+.container-delivery .title .dimension label,
+.container-delivery .title .destiny label,
+.container-delivery .title .origin label{
+    margin: 10px;
+}
+
+.container-delivery .title textarea {
+    width: 535px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.container-delivery button {
+    align-items: center;
+    border: black 3px solid;
+    width: 200px;
+    height: 20px;
+    margin-left: 225px;
+    margin-bottom: 20px;
+}

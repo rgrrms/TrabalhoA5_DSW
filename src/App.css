@@ -24,3 +24,11 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--title-color);
   font-family: Ubuntu;
 }
+
+fieldset {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}

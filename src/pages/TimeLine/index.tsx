@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import {FiArrowLeft, FiArrowRight} from "react-icons/fi";
 import {Link} from "react-router-dom";
+import logo from "../../assets/logo.png";
+import "./styles.css"
 
 interface Repository {
     id: number
@@ -58,40 +60,64 @@ class Timeline extends Component<Props> {
 
     render(){
         const { props } = this.state;
-        return (<div>
-                <Link to="/add-delivery">
-                    <FiArrowRight />
-                    Cadastrar nova entrega!
-                </Link>
-                <Link onClick={this.handleClosed} to="/">
-                    <FiArrowLeft />
-                    Sair
-                </Link>
+        return (<div className="container-timeline">
+                <header>
+                    <div>
+                        <img src={logo} alt="Wetake" />
+                    </div>
+                    <div>
+                        <div className="exit">
+                            <Link onClick={this.handleClosed} to="/">
+                                <FiArrowLeft />
+                                Sair
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to="/add-delivery">
+                                <FiArrowRight />
+                                Cadastrar nova entrega!
+                            </Link>
+                        </div>
+                    </div>
+                </header>
                     {props.map(repository => (
                     <fieldset key={repository.id}>
                         <legend>
-                            <h2>Entrega</h2>
+                            <h2 className="title">Entrega</h2>
                         </legend>
-                        <span>Origem</span><br/>
-                        <span>{repository.uf_origin}</span><br/>
-                        <span>{repository.city_origin}</span><br/><br/>
+                        <div className="location">
+                            <div>
+                                <span className="subTitle">Origem</span><br/>
+                                <span>{repository.uf_origin}</span><br/>
+                                <span>{repository.city_origin}</span><br/><br/>
+                            </div>
+                            <div>
+                                <span className="subTitle">Destino</span><br/>
+                                <span>{repository.uf_destiny}</span><br/>
+                                <span>{repository.city_destiny}</span><br/><br/>
+                            </div>
+                        </div>
 
-                        <span>Destino</span><br/>
-                        <span>{repository.uf_destiny}</span><br/>
-                        <span>{repository.city_destiny}</span><br/><br/>
+                        <div className="infos">
+                            <div>
+                                <span className="subTitle">Dimensões</span><br/>
+                                <span>Altura: {repository.height} m</span><br/>
+                                <span>Largura: {repository.width} m</span><br/>
+                                <span>Comprimento: {repository.length} m</span><br/>
+                                <span>Peso: {repository.weight} KG</span><br/><br/>
+                            </div>
+                            <div>
+                                <span className="subTitle">Contato</span><br/>
+                                <span>Nome: {repository.name}</span><br/>
+                                <span>E-mail: {repository.email}</span><br/>
+                                <span>Telefone: {repository.phone}</span><br/><br/>
+                            </div>
+                        </div>
 
-                        <span>Dimensões</span><br/>
-                        <span>{repository.height}</span><br/>
-                        <span>{repository.width}</span><br/>
-                        <span>{repository.length}</span><br/>
-                        <span>{repository.weight}</span><br/><br/>
-
-                        <span>Contato</span><br/>
-                        <span>{repository.name}</span><br/>
-                        <span>{repository.email}</span><br/>
-                        <span>{repository.phone}</span><br/><br/>
-
-                        <span>{repository.observation}</span>
+                        <div className="obs">
+                            <span className="subTitle">Observações</span><br/>
+                            <span>{repository.observation}</span>
+                        </div>
                     </fieldset>
                     ))}
             </div>

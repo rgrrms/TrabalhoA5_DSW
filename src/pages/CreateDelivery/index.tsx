@@ -4,7 +4,7 @@ import {Link, useHistory} from "react-router-dom";
 import {FiArrowLeft} from "react-icons/fi";
 import axios from "axios";
 import api from "../../services/api";
-
+import "./styles.css";
 
 interface IBGEUFResponse {
     sigla: string;
@@ -134,43 +134,60 @@ const CreateDelivery = () => {
     }
 
     return (
-        <div>
+        <div className="container-delivery">
             <header>
-                <img src={logo} alt="Wetake" />
-
-                <Link onClick={handleClosed} to="/" >
-                    <FiArrowLeft />
-                    Sair
-                </Link>
+                <div>
+                    <img src={logo} alt="Wetake" />
+                </div>
+                <div>
+                    <div className="exit">
+                        <Link onClick={handleClosed} to="/" >
+                            <FiArrowLeft />
+                            Sair
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/timeline" >
+                            <FiArrowLeft />
+                            Voltar para Timeline
+                        </Link>
+                    </div>
+                </div>
             </header>
             <form onSubmit={handleSubmit}>
-                <fieldset>
+                <fieldset className="title">
                     <legend>
                         <h2>Endereço de origem</h2>
                     </legend>
+                    <div className="origin">
+                        <div>
+                            <label htmlFor="ufOrigin">Estado (UF)</label>
+                            <select name="ufOrigin" id="ufOrigin" value={selectedUfOrigin} onChange={handleSelectUfOrigin}>
+                                <option value="0">Selecione uma UF</option>
+                                {ufsOrigin.map(uf => (
+                                    <option key={uf} value={uf}>{uf}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div>
+                            <label htmlFor="city">Cidade</label>
+                            <select name="cityOrigin" id="cityOrigin" value={selectedCityOrigin} onChange={handleSelectCityOrigin}>
+                                <option value="0">Selecione uma cidade</option>
+                                {citiesOrigin.map(city => (
+                                    <option key={city} value={city}>{city}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
 
-                    <label htmlFor="ufOrigin">Estado (UF)</label>
-                    <select name="ufOrigin" id="ufOrigin" value={selectedUfOrigin} onChange={handleSelectUfOrigin}>
-                        <option value="0">Selecione uma UF</option>
-                        {ufsOrigin.map(uf => (
-                            <option key={uf} value={uf}>{uf}</option>
-                        ))}
-                    </select>
-
-                    <label htmlFor="city">Cidade</label>
-                    <select name="cityOrigin" id="cityOrigin" value={selectedCityOrigin} onChange={handleSelectCityOrigin}>
-                        <option value="0">Selecione uma cidade</option>
-                        {citiesOrigin.map(city => (
-                            <option key={city} value={city}>{city}</option>
-                        ))}
-                    </select>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="title">
                     <legend>
                         <h2>Endereço de destino</h2>
                     </legend>
-
+                    <div className="destiny">
+                        <div>
                     <label htmlFor="ufDestiny">Estado (UF)</label>
                     <select name="ufDestiny" id="ufDestiny" value={selectedUfDestiny} onChange={handleSelectUfDestiny}>
                         <option value="0">Selecione uma UF</option>
@@ -178,7 +195,8 @@ const CreateDelivery = () => {
                             <option key={uf} value={uf}>{uf}</option>
                         ))}
                     </select>
-
+                        </div>
+                        <div>
                     <label htmlFor="cityDestiny">Cidade</label>
                     <select name="cityDestiny" id="cityDestiny" value={selectedCityDestiny} onChange={handleSelectCityDestiny}>
                         <option value="0">Selecione uma cidade</option>
@@ -186,25 +204,34 @@ const CreateDelivery = () => {
                             <option key={city} value={city}>{city}</option>
                         ))}
                     </select>
+                        </div>
+                    </div>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="title">
                     <legend>
-                        <h2>dimensões</h2>
+                        <h2>Dimensões</h2>
                         <span>Sempre em metros!</span>
                     </legend>
+                    <div className="dimension">
+                        <div className="row">
+                            <label htmlFor="height">Altura</label>
+                            <input type="number" name="height" id="height" value={height} onChange={e => setHeight(e.target.value)}/>
 
-                    <label htmlFor="height">Altura</label>
-                    <input type="number" name="height" id="height" value={height} onChange={e => setHeight(e.target.value)}/>
-                    <label htmlFor="width">Largura</label>
-                    <input type="number" name="width" id="width" value={width} onChange={e => setWidth(e.target.value)}/>
-                    <label htmlFor="length">Comprimento</label>
-                    <input type="number" name="length" id="length" value={length} onChange={e => setLength(e.target.value)}/>
-                    <label htmlFor="weight">Peso</label>
-                    <input type="number" name="weight" id="weight" value={weight} onChange={e => setWeight(e.target.value)}/>
+                            <label htmlFor="width">Largura</label>
+                            <input type="number" name="width" id="width" value={width} onChange={e => setWidth(e.target.value)}/>
+                        </div>
+                        <div className="row">
+                            <label htmlFor="length">Comprimento</label>
+                            <input type="number" name="length" id="length" value={length} onChange={e => setLength(e.target.value)}/>
+
+                            <label htmlFor="weight">Peso</label>
+                            <input type="number" name="weight" id="weight" value={weight} onChange={e => setWeight(e.target.value)}/>
+                        </div>
+                    </div>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="title">
                     <legend>
                         <h2>Observação</h2>
                         <span>Adicione informações adicionais</span>

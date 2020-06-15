@@ -1,0 +1,58 @@
+.container-timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-timeline header {
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-timeline header .exit {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 140px;
+}
+
+.container-timeline fieldset {
+    width: 700px;
+    height: 350px;
+    background-color: darkorange;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.container-timeline .title {
+    margin-top: 40px;
+}
+
+.container-timeline .location {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-timeline .infos div,
+.container-timeline .location div {
+    padding-left: 40px;
+    padding-right: 70px;
+
+}
+
+.container-timeline .infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-timeline .obs {
+    padding-left: 40px;
+}
+
+.container-timeline .subTitle {
+    color: black;
+    font-size: 20px;
+}
